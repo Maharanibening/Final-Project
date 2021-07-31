@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">  <title>Portofolio Ara</title>
+  <link rel="stylesheet" type="text/css" href="hover.css" />
+  <script src="https://unpkg.com/freezeframe/dist/freezeframe.min.js"></script>
+
+</head>
+<body>
+
+  <div class="preload">
+    <div class="element">
+      <img class="animation" src="pala.gif" alt="ara">
+<div class="bar">
+      <div class="in"></div>
+    </div>
+  </div>
+
+</div>
+
+  
+  <div class="center">
+  </div>  
+
+  <div class="myself">
+    <img onmouseover = "changePic1()" onmouseout= "changePic22()"
+    id="orang" class="ara a-slide" data-animation="stop" src="ara.gif" >
+  </div>
+
+  <div class="wallart">
+    <img onmouseover = "changeart()" onmouseout= "changeart2()" 
+    id="art" src="art.gif" >
+    <img onmouseover = "changeartsmall1()" onmouseout= "changeartsmall2()" 
+    id="smallart" src="lukisan-satu.gif" >
+  </div>
+      
+  <a href="mailto:maharanibeningkhatulistiwa.com">
+  <div class="tele">
+    <img onmouseenter = "changetelephone()" onmouseout= "changetelephone2()" 
+    id="telephone" src="telepon.gif" >
+    </div>
+  </a>
+  
+
+  <div class="layer center"></div>
+  <div class="popup center">
+   <div class="nametag">
+     <h1 id=projectstag>PROJECTS  
+
+     </h1>
+   </div>
+   <div class="dismiss-btn">
+      <button id="dismiss-popup-btn"> X </button>
+   </div>
+  </div>
+
+  <div class="projects center">
+    <div class="icon1">
+      <a href="https://maharanibening.webflow.io/work/project-1">
+      <div class="branding"> 
+        <h1 id="tulisanbranding">
+          BRANDING
+        </h1>
+
+      </div>
+    </a>
+    </div>
+
+
+
+    <div class="icon2">
+      <a href="https://maharanibening.webflow.io/work/project-4">
+      <div class="application">
+      <h1 id="tulisanapplication">
+        APPLICATION
+      </h1>
+    </div>
+    </a>
+  </div>
+
+
+    <div class="icon3">
+      <a href="https://maharanibening.webflow.io/work/project-3">
+      <div class="illustration">
+        <h1 id="tulisanillustration">
+          ILLUSTRATION
+        </h1>
+      </div>
+    </div>
+  </a>
+
+  </div>
+
+  <div class="popuporang center">
+    <div class="nametagorang">
+      <h1 id=orangtag>
+        ABOUT ME  
+      </h1>
+    </div>
+    <div class="dismiss-btn2">
+      <button id="dismiss-popuporang-btn"> X </button>
+    </div>
+  </div>
+  <div class="column center">
+    <div class="column1">
+      <img src="profile.png" id="profile">
+    </div>
+    <div class="column2">
+      <p id=profilewords>
+      Hi! I'm Maharani Bening. A Communication Science student who is passionate 
+      in creative technology and brand campaign. Focusing on
+        interface and digital design mainly building illustration,
+        branding, and web-application.     </p>
+    </div>
+  </div>
+
+<script type="text/javascript">
+document.getElementById('orang').src="ara.gif?a="+Math.random()
+
+const jstoggle = document.getElementById('orang');
+  jstoggle.addEventListener('mouseover', () => {
+    const animations = document.querySelectorAll('[data-animation');
+    animations.forEach(animation => {
+      const paused = getComputedStyle(animation).getPropertyValue("--animps") || 'paused';
+      animation.style.setProperty('--animps', paused === 'paused' ? 'paused' : 'running');
+    })
+  });
+
+
+function changePic1() {
+document.getElementById("orang").src = "transparent.gif";
+}
+function changePic22(){
+document.getElementById("orang").src = "ara3.gif";
+}
+   
+function changeart() {
+document.getElementById("art").src = "transparent.gif";
+}
+   
+function changeart2() {
+document.getElementById("art").src = "art.gif";
+}
+
+function changeartsmall1() {
+document.getElementById("smallart").src = "transparent.gif";
+}
+
+function changeartsmall2() {
+document.getElementById("smallart").src = "lukisan-satu.gif";
+}
+
+
+function changetelephone() {
+document.getElementById("telephone").src = "transparent.gif";
+}
+   
+function changetelephone2() {
+document.getElementById("telephone").src = "telepon.gif";
+}
+
+
+
+
+document.getElementById("art").addEventListener("click",function(){
+  document.getElementsByClassName("popup")[0].classList.remove("close");
+  document.getElementsByClassName("popup")[0].classList.add("active");
+  document.getElementsByClassName("projects")[0].classList.add("active");
+  document.getElementsByClassName("layer")[0].classList.add("active");
+
+});
+ 
+document.getElementById("dismiss-popup-btn").addEventListener("click",function(){
+  document.getElementsByClassName("popup")[0].classList.add("close");
+  document.getElementsByClassName("projects")[0].classList.remove("active");
+  document.getElementsByClassName("layer")[0].classList.remove("active");
+
+}); 
+
+document.getElementById("orang").addEventListener("click",function(){
+  document.getElementsByClassName("popuporang")[0].classList.remove("close");
+  document.getElementsByClassName("popuporang")[0].classList.add("active");
+  document.getElementsByClassName("column")[0].classList.add("active");
+  document.getElementsByClassName("layer")[0].classList.add("active");
+
+});
+
+
+document.getElementById("dismiss-popuporang-btn").addEventListener("click",function(){
+  document.getElementsByClassName("popuporang")[0].classList.add("close");
+  document.getElementsByClassName("column")[0].classList.remove("active");
+  document.getElementsByClassName("layer")[0].classList.remove("active");
+
+}); 
+
+
+
+
+
+window.addEventListener('load', () => {
+    const preload = document.querySelector('.preload');
+    setTimeout( function() {
+        preload.classList.add('preload-finish');
+    }, 1120 );
+});
+
+
+
+
+</script>
+      
+
+</body>
+</html>
